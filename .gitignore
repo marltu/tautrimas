@@ -1,0 +1,5 @@
+vendor/
+composer.phar
+application/cache
+application/logs
+application/config/database.php

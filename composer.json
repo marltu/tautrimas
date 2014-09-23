@@ -1,0 +1,9 @@
+{
+    "require": {
+        "phpunit/phpunit": "3.7.24",
+        "phing/phing": "dev-master",
+        "guzzlehttp/guzzle": "~4.0",
+        "symfony/dom-crawler": "~2.5",
+        "symfony/css-selector": "~2.5"
+    }
+}
