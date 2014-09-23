@@ -17,7 +17,7 @@ before_script:
   - cp application/tests/Functional/Browser/parameters.example.js application/tests/Functional/Browser/parameters.js
 script:
   #- vendor/bin/phpunit -c application --coverage-text
-  #- casperjs test application/tests/Functional/Browser/Test
+  - casperjs test application/tests/Functional/Browser/Test
 cache:
   directories:
     - vendor/

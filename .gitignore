@@ -3,3 +3,4 @@ composer.phar
 application/cache
 application/logs
 application/config/database.php
+application/tests/Functional/parameters.js
