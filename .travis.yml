@@ -1,0 +1,23 @@
+language: php
+php:
+  - 5.4
+before_install:
+  - npm install -g casperjs
+before_script:
+  - cp application/config/database.example.php application/config/database.php
+  - cp application/config/testing/database.example.php application/config/testing/database.php
+  - mysql -e 'create database workshop_testing_test;'
+  - mysql -e 'create database workshop_testing;'
+  - echo "USE mysql;\nUPDATE user SET password=PASSWORD('root') WHERE user='root';\nFLUSH PRIVILEGES;\n" | mysql -u root
+  - mysql -u root --password=root workshop_testing_test < pages.sql
+  - mysql -u root --password=root workshop_testing < pages.sql
+  - composer install --prefer-dist
+  - php -S localhost:8000 index.php &
+  - sleep 3
+  - cp application/tests/Functional/Browser/parameters.example.js application/tests/Functional/Browser/parameters.js
+script:
+  #- vendor/bin/phpunit -c application --coverage-text
+  #- casperjs test application/tests/Functional/Browser/Test
+cache:
+  directories:
+    - vendor/
