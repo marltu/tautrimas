@@ -13,6 +13,10 @@ casper.test.begin('Url submitting', 2, function suite(test) {
         test.assertExists('.page-list a[href="' + url + '"]', 'Link must exist');
     });
 
+    casper.then(function () {
+        this.capture('google.png');
+    });
+
     casper.run(function () {
         test.done();
     });

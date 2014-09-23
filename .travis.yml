@@ -14,10 +14,10 @@ before_script:
   - composer install --prefer-dist
   - php -S localhost:8000 index.php &
   - sleep 3
-  - cp application/tests/Functional/Browser/parameters.example.js application/tests/Functional/Browser/parameters.js
+  - cp application/tests/Functional/parameters.example.js application/tests/Functional/parameters.js
 script:
   #- vendor/bin/phpunit -c application --coverage-text
-  - casperjs test application/tests/Functional/Browser/Test
+  - casperjs test application/tests/Functional/Browser
 cache:
   directories:
     - vendor/
